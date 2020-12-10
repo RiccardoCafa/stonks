@@ -1,28 +1,31 @@
 import React from 'react';
 //---------------------------------------------------------------< pages >
 import Main from './pages/Main/index';
-//---------------------------------------------------------------< utils >
-import useStorageState from './utils/useStorageState';
+//----------------------------------------------------------< components >
+import { ToastContainer } from 'react-toastify';
+//---------------------------------------------------------------< hooks >
+import useStorageState from './hooks/useStorageState';
 //--------------------------------------------------------------< styles >
 import { DefaultTheme, ThemeProvider } from 'styled-components';
-
 import dark from './styles/themes/dark';
 import light from './styles/themes/light';
 import GlobalStyles from './styles/global';
-//================================================================[ BODY ]
+import 'react-toastify/dist/ReactToastify.css';
+//=================================================================[ APP ]
 const App = () => {
+  //--------------------------------------------------------< properties >
   const [theme, setTheme] = useStorageState<DefaultTheme>('theme', dark);
-
-  /// alterna o tema global
+  //-----------------------------------------------------------< methods >
   const toggleTheme = () => {
     setTheme(theme.title === 'dark' ? light : dark);
   };
-
+  //------------------------------------------------------------< return >
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <Main toggleTheme={toggleTheme} />
+        <ToastContainer />
       </ThemeProvider>
     </>
   );

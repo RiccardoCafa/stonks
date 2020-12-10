@@ -1,8 +1,14 @@
-import { createGlobalStyle } from "styled-components";
-
+import { createGlobalStyle } from 'styled-components';
+//===============================================================[ STYLE ]
 export default createGlobalStyle`
   :root {
     font-size: 66.66%;
+  }
+
+  @media(max-width: 425px) {
+    :root {
+      font-size: 50%;
+    }
   }
 
   * {
@@ -24,7 +30,7 @@ export default createGlobalStyle`
     background: ${({ theme }) => theme.colors.background[1]};
   }
 
-  body, input, button, textarea {
+  body, input, button, textarea, select {
     font-size: 1.6rem;
     font-family: "Open Sans", sans-serif;
     font-weight: 600;

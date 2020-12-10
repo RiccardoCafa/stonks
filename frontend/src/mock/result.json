@@ -1,0 +1,21 @@
+{
+  "suggestions": {
+    "age_rating": 18.0,
+    "game_modes": ["Single player", "Split screen"],
+    "genres": ["Adventure", "Racing", "Shooter", "Sport"],
+    "id": 1020.0,
+    "player_perspectives": ["First person", "Text"],
+    "price": 0.0,
+    "release_date": 9.0,
+    "themes": ["Action", "Comedy", "Open world", "Sandbox"],
+    "time_to_beat": 30.0
+  },
+  "user_prediction": {
+    "accuracy": {
+      "follows": 75.81726000800434,
+      "rating": 13.859652770290493
+    },
+    "follows": 15.0,
+    "rating": 88.101715
+  }
+}

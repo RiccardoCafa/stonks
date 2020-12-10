@@ -1,48 +1,40 @@
-// -------------------------------------------------------------< classes >
-import { FaFeatherAlt } from 'react-icons/fa';
+//-------------------------------------------------------------< classes >
+import GenresStrategies from '../../classes/Strategies/GenresStrategies';
+import ThemesStrategies from '../../classes/Strategies/ThemesStrategies';
+//----------------------------------------------------------< components >
 import TemplateForm from './TemplateForm';
-import Input from '../Data/Input';
-import TextInput from '../Data/Input/TextInput';
-import TagInput from '../Data/Input/TagInput';
-// import TextStrategy from '../Data/Input/TextInput';
-// --------------------------------------------------------------< styles >
-//= ===============================================================[ BODY ]
+import Input from '../Input';
+import TagInput from '../Input/TagInput';
+//--------------------------------------------------------------< styles >
+import { FaFeatherAlt } from 'react-icons/fa';
+//===============================================================[ CLASS ]
 class ProfileForm extends TemplateForm {
+  //-----------------------------------------------------------< methods >
   protected getIcon() {
     return FaFeatherAlt;
   }
-
+  //----------------------------------------------------------------------
   protected getColor() {
     return this.theme.colors.primary[0];
   }
-
+  //----------------------------------------------------------------------
   protected getName() {
     return 'Profile';
   }
-
+  //----------------------------------------------------------------------
   protected getInputs(): Input[] {
     const genres: Input = new TagInput(
-      'Genre',
-      'What are the genders of your game? RPG? Shooter? Platform?'
+      'Genres',
+      'What are the genders of your game? RPG? Shooter? Platform?',
+      new GenresStrategies()
     );
     const themes: Input = new TagInput(
       'Themes',
-      'What are the themes of your game? Action? Comedy? Fantasy?'
-    );
-    const keywords: Input = new TagInput(
-      'Keywords',
-      'list some keywords regards to your game'
-    );
-    const storyline: Input = new TextInput(
-      'Storyline',
-      'Tell us a little of the your game story'
-    );
-    const summary: Input = new TextInput(
-      'Summary',
-      'Write here a brief description of your game'
+      'What are the themes of your game? Action? Comedy? Fantasy?',
+      new ThemesStrategies()
     );
 
-    return [genres, themes, keywords, storyline, summary];
+    return [genres, themes];
   }
 }
 
